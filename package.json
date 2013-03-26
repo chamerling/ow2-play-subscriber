@@ -1,0 +1,22 @@
+{
+  "name": "ow2-play-subscriber",
+  "version": "0.0.1",
+  "description": "Node.js Subscriber for OW2 Play API",
+  "author": "Christophe Hamerling <christophe.hamerling@gmail.com>",
+  "homepage": "http://github.com/chamerling/ow2-play-subscriber",
+  "keywords": [
+    "node", "play"
+  ],
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://mths.be/mit"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/chamerling/ow2-play-subscriber.git"
+  },
+  "dependencies": {
+    "express": "latest",
+    "ow2-playclient" : "git://github.com/chamerling/ow2-playclient.git"
+  }
+}
