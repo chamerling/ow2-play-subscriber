@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "express": "latest",
-    "ow2-playclient" : "git://github.com/chamerling/ow2-playclient.git"
+    "ow2-playclient" : "0.0.1"
   }
 }
