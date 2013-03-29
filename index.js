@@ -6,9 +6,23 @@ var express = require('express')
   , play = require('ow2-playclient');
 
 var app = express();
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
+//app.use(express.bodyParser());
+//app.use(express.methodOverride());
+//app.use(app.router);
+
+// get the incoming HTTP body as string, fine for XML notifications...
+app.use(function(req, res, next) {
+  var data='';
+  req.setEncoding('utf8');
+  req.on('data', function(chunk) { 
+    data += chunk;
+  });
+
+  req.on('end', function() {
+    req.body = data;
+    next();
+  });
+});
 
 var path = '/subcriber';
 var host = 'localhost';
@@ -26,7 +40,8 @@ var stream = 'http://streams.event-processing.org/ids/activityEvent#stream';
 var client = play.create({token: token});
 
 app.post(path, function(req, res) {
-  console.log('Got an input message:', req.body);
+  console.log('Got a new notification at', new Date())
+  console.log(req.body)
   nb++;
   res.send(200);
 });
